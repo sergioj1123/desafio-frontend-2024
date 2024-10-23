@@ -6,5 +6,5 @@ import { Component, Input } from '@angular/core';
   styleUrl: './button.component.scss',
 })
 export class ButtonComponent {
-  @Input() dataFromParent!: string;
+  @Input() buttonText!: string;
 }
