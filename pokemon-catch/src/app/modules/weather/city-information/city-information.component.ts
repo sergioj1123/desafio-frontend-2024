@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { WeatherDataBehaviorService } from '../../shared/services/weather-data-behavior.service';
-import { Weather } from '../../shared/models/weather.model';
+import { WeatherDataBehaviorService } from '../../../shared/services/weather-data-behavior.service';
+import { Weather } from '../../../shared/models/weather.model';
 
 @Component({
   selector: 'city-information',

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { Weather } from '../../shared/models/weather.model';
+import { Weather } from '../../../shared/models/weather.model';
 import { WeatherService } from '../services/weather.service';
-import { WeatherDataBehaviorService } from '../../shared/services/weather-data-behavior.service';
+import { WeatherDataBehaviorService } from '../../../shared/services/weather-data-behavior.service';
 
 @Component({
   selector: 'app-form-weather',

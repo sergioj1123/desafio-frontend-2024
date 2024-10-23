@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FormWeatherComponent } from './weather/form-weather/form-weather.component';
+import { FormWeatherComponent } from './modules/weather/form-weather/form-weather.component';
 
 const routes: Routes = [
   {

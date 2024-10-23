@@ -19,5 +19,6 @@
       [dataFromParent]="'Buscar'"
       (click)="getAndSetWeather()"
     ></button-component>
+    <city-information *ngIf="weather.length > 0"></city-information>
   </form>
 </div>
