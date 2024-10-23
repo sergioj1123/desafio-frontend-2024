@@ -14,9 +14,12 @@ export class CityInformationComponent implements OnInit {
     this.weatherData.currentData.subscribe({
       next: (weather) => {
         this.receivedWeather = [weather];
-        console.log(this.receivedWeather);
       },
     });
+  }
+
+  isRainy(rain: any): Boolean {
+    return rain === 'Rain' ? true : false;
   }
 
   getWeatherIcon(icon: any): string {

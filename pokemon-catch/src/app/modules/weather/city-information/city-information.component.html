@@ -10,6 +10,10 @@
     <p class="city-information__weather__description">
       Clima: {{ receivedWeather[0].weather?.[0]?.description }}
     </p>
+    <p class="city-information__weather__rain">
+      Chuva:
+      {{ isRainy(receivedWeather[0].weather?.[0]?.main?.toString()) ? 'Sim' : 'Não' }}
+    </p>
     <img
       src="{{ getWeatherIcon(receivedWeather[0].weather?.[0]?.icon?.toString()) }}"
       alt="Imagem representando o clima {{receivedWeather[0].weather?.[0]?.description}}"
