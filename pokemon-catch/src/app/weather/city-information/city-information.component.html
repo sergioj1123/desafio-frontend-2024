@@ -1,0 +1,21 @@
+<div class="city-information">
+  <h3 class="city-information__name">
+    {{ receivedWeather[0].name }}
+  </h3>
+  <p>{{ receivedWeather[0].sys?.country }}</p>
+  <div class="city-information__weather">
+    <p class="city-information__weather__temperature">
+      Temperatura: {{ receivedWeather[0].main?.temp }} ºC
+    </p>
+    <p class="city-information__weather__description">
+      Clima: {{ receivedWeather[0].weather?.[0]?.description }}
+    </p>
+    <img
+      src="{{ getWeatherIcon(receivedWeather[0].weather?.[0]?.icon?.toString()) }}"
+      alt="Imagem representando o clima {{receivedWeather[0].weather?.[0]?.description}}"
+    />
+    <button-component
+      [dataFromParent]="'Deseja caçar pokemons nessa area ?'"
+    ></button-component>
+  </div>
+</div>
