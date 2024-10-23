@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormWeatherComponent } from './modules/weather/form-weather/form-weather.component';
+import { PokemonInfoComponent } from './modules/pokemon/pokemon-info/pokemon-info.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,7 @@ const routes: Routes = [
     path: 'weather',
     component: FormWeatherComponent,
   },
+  { path: 'pokemon', component: PokemonInfoComponent },
 ];
 
 @NgModule({
