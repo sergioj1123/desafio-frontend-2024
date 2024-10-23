@@ -14,8 +14,9 @@
       src="{{ getWeatherIcon(receivedWeather[0].weather?.[0]?.icon?.toString()) }}"
       alt="Imagem representando o clima {{receivedWeather[0].weather?.[0]?.description}}"
     />
-    <button-component
-      [dataFromParent]="'Deseja caçar pokemons nessa area ?'"
-    ></button-component>
+    <a href="#" [routerLink]="['/pokemon']">
+      <button-component [buttonText]="'Deseja caçar pokemons nessa area ?'">
+      </button-component>
+    </a>
   </div>
 </div>
