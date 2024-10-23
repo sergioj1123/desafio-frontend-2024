@@ -1,0 +1,19 @@
+.weather-form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  max-width: 250px;
+  align-items: center;
+  margin: 0 auto;
+
+  &__city-label {
+    font-weight: bold;
+  }
+
+  &__input {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+}

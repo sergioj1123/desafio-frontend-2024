@@ -1,1 +1,23 @@
-<p>form-weather works!</p>
+<div class="container">
+  <h2>Onde deseja procurar Pokemons</h2>
+  <form class="weather-form">
+    <label for="weather-form__input" class="weather-form__city-label"
+      >Insira o nome da cidade:</label
+    >
+    <input
+      type="text"
+      id="weather-form__input"
+      class="weather-form__input"
+      placeholder="Ex: São Paulo"
+      required
+      minlength="2"
+      text
+      [(ngModel)]="city"
+      name="city"
+    />
+    <button-component
+      [dataFromParent]="'Buscar'"
+      (click)="getAndSetWeather()"
+    ></button-component>
+  </form>
+</div>
