@@ -1,1 +1,33 @@
-<p>pokemon-info works!</p>
+<div class="container pokemon-info" *ngIf="pokemonInformation.length > 0">
+  <h2 class="pokemon-info__title">Você encontrou o seguinte pokemon!</h2>
+  <div class="pokemon-info__content">
+    <div class="pokemon-info__image">
+      <img [src]="getPokemonImage()" [alt]="currentPokemonName" />
+    </div>
+    <div class="pokemon-info__details">
+      <h3 class="pokemon-info__name">{{ currentPokemonName }}</h3>
+      <ul class="pokemon-info__types">
+        <li *ngFor="let type of getPokemonTypes()" class="pokemon-info__type">
+          {{ type }}
+        </li>
+      </ul>
+      <div class="pokemon-info__abilities">
+        <h4 class="pokemon-info__abilities-title">Habilidades</h4>
+        <ul class="pokemon-info__abilities-list">
+          <li
+            *ngFor="let ability of getPokemonAbilities()"
+            class="pokemon-info__ability"
+          >
+            {{ ability }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <button class="pokemon-info__New-pokemon" (click)="RandomPokemon()">
+    Encontre outro Pokemon
+  </button>
+  <a href="#" [routerLink]="['/']">
+    <button class="pokemon-info__City-router">Retornar tela</button>
+  </a>
+</div>
