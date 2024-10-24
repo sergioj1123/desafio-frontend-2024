@@ -4,14 +4,20 @@ import {
   provideClientHydration,
 } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { WeatherModule } from './modules/weather/weather.module';
+import { PokemonModule } from './modules/pokemon/pokemon.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, WeatherModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    WeatherModule,
+    PokemonModule,
+  ],
   providers: [provideClientHydration()],
   bootstrap: [AppComponent],
 })
