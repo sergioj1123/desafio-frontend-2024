@@ -1,23 +1,23 @@
 <div class="city-information container second-screen">
   <h3 class="city-information__name title">
-    {{ receivedWeather[0].name }}
+    {{ getWeatherCityName() }}
   </h3>
-  <p>{{ receivedWeather[0].sys?.country }}</p>
+  <p>{{ getWeatherCityCountry() }}</p>
   <div class="city-information__weather">
     <p class="city-information__weather__temperature">
-      Temperatura: {{ receivedWeather[0].main?.temp }} ºC
+      Temperatura: {{ getWeatherCityTemperature() }} ºC
     </p>
     <p class="city-information__weather__description">
-      Clima: {{ receivedWeather[0].weather?.[0]?.description }}
+      Clima: {{ getWeatherDescription() }}
     </p>
     <p class="city-information__weather__rain">
       Chuva:
-      {{ isRainy(receivedWeather[0].weather?.[0]?.main?.toString()) ? 'Sim' : 'Não' }}
+      {{ getRainyStatus() ? "Sim" : "Não" }}
     </p>
     <img
       class="city-information__weather__icon"
-      src="{{ getWeatherIcon(receivedWeather[0].weather?.[0]?.icon?.toString()) }}"
-      alt="Imagem representando o clima {{receivedWeather[0].weather?.[0]?.description}}"
+      src="{{ getWeatherIcon() }}"
+      alt="Imagem representando o clima {{ getWeatherDescription() }}"
     />
     <a href="#" [routerLink]="['/pokemon']">
       <button-component [buttonText]="'Deseja caçar pokemons nessa area ?'">
