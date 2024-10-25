@@ -4,7 +4,7 @@
 >
   <h2 class="pokemon-info__title title">Você encontrou o seguinte pokemon!</h2>
   <div class="pokemon-info__content">
-    <div class="pokemon-info__image">
+    <div class="pokemon-info__img-content">
       <img
         [src]="getPokemonImage()"
         [alt]="currentPokemonName"
@@ -19,7 +19,9 @@
   *ngIf="pokemonInformation.length > 0"
 >
   <ul class="pokemon-info-details__types">
-    <h4 class="pokemon-info-details__text">Tipos:</h4>
+    <h4 class="pokemon-info-details__text">
+      {{ getPokemonTypes().length === 1 ? "Tipo" : "Tipos" }}
+    </h4>
     <li
       *ngFor="let type of getPokemonTypes()"
       class="pokemon-info-details__type"
@@ -28,7 +30,9 @@
     </li>
   </ul>
   <ul class="pokemon-info-details__abilities-list">
-    <h4 class="pokemon-info-details__abilities-title">Habilidades</h4>
+    <h4 class="pokemon-info-details__abilities-title">
+      {{ getPokemonAbilities().length === 1 ? "Habilidade" : "Habilidades" }}
+    </h4>
     <li
       *ngFor="let ability of getPokemonAbilities()"
       class="pokemon-info-details__ability"
