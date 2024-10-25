@@ -1,5 +1,5 @@
-<div class="container">
-  <h2>Onde deseja procurar Pokemons</h2>
+<div class="container first-screen weather game-color">
+  <h2 class="title">Onde deseja procurar Pokemons</h2>
   <form class="weather-form">
     <label for="weather-form__input" class="weather-form__city-label"
       >Insira o nome da cidade:</label
@@ -19,6 +19,6 @@
       [buttonText]="'Buscar'"
       (click)="getAndSetWeather()"
     ></button-component>
-    <city-information *ngIf="weather.length > 0"></city-information>
   </form>
 </div>
+<city-information *ngIf="weather.length > 0"></city-information>
