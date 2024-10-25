@@ -1,5 +1,5 @@
-<div class="city-information">
-  <h3 class="city-information__name">
+<div class="city-information container second-screen">
+  <h3 class="city-information__name title">
     {{ receivedWeather[0].name }}
   </h3>
   <p>{{ receivedWeather[0].sys?.country }}</p>
@@ -15,6 +15,7 @@
       {{ isRainy(receivedWeather[0].weather?.[0]?.main?.toString()) ? 'Sim' : 'Não' }}
     </p>
     <img
+      class="city-information__weather__icon"
       src="{{ getWeatherIcon(receivedWeather[0].weather?.[0]?.icon?.toString()) }}"
       alt="Imagem representando o clima {{receivedWeather[0].weather?.[0]?.description}}"
     />
