@@ -19,7 +19,7 @@ export class FormWeatherComponent {
 
   ngOnInit() {}
 
-  getAndSetWeather() {
+  getWeatherFromApiAndSendToDataBehaviorService() {
     this.getWeatherByCity(this.city);
   }
 
@@ -27,10 +27,12 @@ export class FormWeatherComponent {
     this.weatherService.getWeatherByCity(city).subscribe({
       next: (weather) => {
         this.weather = [weather];
-        this.sendDataToBehaviorSubject();
       },
       error: (error) => {
         console.error(error + 'Erro ao buscar a previsão do tempo');
+      },
+      complete: () => {
+        this.sendDataToBehaviorSubject();
       },
     });
     return this.weather;
