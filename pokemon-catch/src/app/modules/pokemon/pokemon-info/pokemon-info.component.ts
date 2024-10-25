@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { WeatherDataBehaviorService } from '../../../shared/services/weather-data-behavior.service';
 import { Weather } from '../../../shared/models/weather.model';
-import { isRainy } from '../../../shared/utils/functions';
+import {
+  changeHyphenToBlackSpace,
+  convertFistLetterToUpperCase,
+  isRainy,
+} from '../../../shared/utils/functions';
 import { PokemonService } from '../services/pokemon.service';
 import { concat } from 'rxjs';
 
@@ -96,6 +100,11 @@ export class PokemonInfoComponent implements OnInit {
       error: (error) => {
         console.error(error + 'Erro ao buscar o pokemon');
       },
+      complete: () => {
+        this.currentPokemonName = this.removeHyphenAndCapitalize(
+          this.currentPokemonName
+        );
+      },
     });
     return this.pokemonInformation;
   }
@@ -105,12 +114,20 @@ export class PokemonInfoComponent implements OnInit {
   }
 
   getPokemonTypes(): string[] {
-    return this.pokemonInformation[0].types.map((type: any) => type.type.name);
+    return this.pokemonInformation[0].types.map((type: any) =>
+      this.removeHyphenAndCapitalize(type.type.name)
+    );
   }
 
   getPokemonAbilities(): string[] {
-    return this.pokemonInformation[0].abilities.map(
-      (ability: any) => ability.ability.name
+    return this.pokemonInformation[0].abilities.map((ability: any) =>
+      this.removeHyphenAndCapitalize(ability.ability.name)
     );
+  }
+
+  removeHyphenAndCapitalize(text: string): string {
+    text = changeHyphenToBlackSpace(text);
+    text = convertFistLetterToUpperCase(text);
+    return text;
   }
 }
