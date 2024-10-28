@@ -17,5 +17,6 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [CommonModule, FormsModule, RouterModule],
   providers: [WeatherService],
+  exports: [ButtonComponent],
 })
 export class WeatherModule {}
