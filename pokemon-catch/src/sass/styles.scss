@@ -49,14 +49,15 @@ body {
 }
 
 .first-screen {
-  margin-top: 70px;
+  margin-top: 67px;
   max-width: 400px;
-  height: 235px;
+  height: 239px;
   background-image: $screenColor;
+  @include border-radius(5px);
 
   @media screen and (max-width: $breakpontTablet) {
     margin-top: 50px;
-    @include border-radius();
+    @include border-radius(15px);
     @include box-shadow();
   }
 }
@@ -66,13 +67,14 @@ body {
   max-width: 320px;
   height: 240px;
   background-image: $screenColor;
+  @include border-radius(5px);
 
   @media screen and (max-width: $breakpontTablet) {
     padding: 8px;
     margin-top: 50px;
     max-width: 400px;
     height: auto;
-    @include border-radius();
+    @include border-radius(15px);
     @include box-shadow();
   }
 }
