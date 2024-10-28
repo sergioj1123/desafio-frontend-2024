@@ -1,8 +1,15 @@
+@import "../../../../sass/variables.scss";
+
 .button-component {
   padding: 5px 10px;
   border: none;
   border-radius: 5px;
-  background-color: #007bff;
+  background-color: $buttonColor;
   color: #fff;
   cursor: pointer;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    background-color: $buttonColorHover;
+  }
 }
