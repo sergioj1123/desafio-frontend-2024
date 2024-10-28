@@ -40,10 +40,15 @@
       {{ ability }}
     </li>
   </ul>
-  <button class="pokemon-info-details__New-pokemon" (click)="RandomPokemon()">
-    Encontre outro Pokemon
-  </button>
+  <button-component
+    [buttonText]="'Encontre outro Pokemon'"
+    (click)="RandomPokemon()"
+    class="pokemon-info-details__button"
+  ></button-component>
   <a href="#" [routerLink]="['/']">
-    <button class="pokemon-info-details__City-router">Retornar tela</button>
+    <button-component
+      [buttonText]="'Aventurar-se em outra cidade'"
+      class="pokemon-info-details__button"
+    ></button-component>
   </a>
 </div>
