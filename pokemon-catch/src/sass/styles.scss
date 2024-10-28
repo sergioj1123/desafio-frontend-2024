@@ -11,6 +11,10 @@
 
 body {
   background-image: $backGroundColor;
+
+  @media screen and (max-width: $breakpontTablet) {
+    padding: 50px;
+  }
 }
 
 .margin-2 {
@@ -38,6 +42,10 @@ body {
     height: 100%;
     object-fit: contain;
   }
+
+  @media screen and (max-width: $breakpontTablet) {
+    display: none;
+  }
 }
 
 .first-screen {
@@ -45,6 +53,12 @@ body {
   max-width: 400px;
   height: 235px;
   background-image: $screenColor;
+
+  @media screen and (max-width: $breakpontTablet) {
+    margin-top: 50px;
+    @include border-radius();
+    @include box-shadow();
+  }
 }
 
 .second-screen {
@@ -52,16 +66,55 @@ body {
   max-width: 320px;
   height: 240px;
   background-image: $screenColor;
+
+  @media screen and (max-width: $breakpontTablet) {
+    padding: 8px;
+    margin-top: 50px;
+    max-width: 400px;
+    height: auto;
+    @include border-radius();
+    @include box-shadow();
+  }
+}
+
+.pageTitle {
+  @include text-style(32px, bold, $textColor);
+  @media screen and (max-width: $breakpontTablet) {
+    @include text-style(28px, bold, $textColor);
+  }
+  @media screen and (max-width: $breakpontMobile) {
+    @include text-style(24px, bold, $textColor);
+  }
 }
 
 .title {
   @include text-style(24px, bold, $textColor);
+
+  @media screen and (max-width: $breakpontTablet) {
+    @include text-style(20px, bold, $textColor);
+  }
+  @media screen and (max-width: $breakpontMobile) {
+    @include text-style(18px, bold, $textColor);
+  }
 }
 
 .subtitle {
   @include text-style(18px, normal, $textColor);
+  @media screen and (max-width: $breakpontTablet) {
+    @include text-style(16px, normal, $textColor);
+  }
+
+  @media screen and (max-width: $breakpontMobile) {
+    @include text-style(14px, normal, $textColor);
+  }
 }
 
 .normal-text {
   @include text-style(16px, normal, $textColor);
+  @media screen and (max-width: $breakpontTablet) {
+    @include text-style(14px, normal, $textColor);
+  }
+  @media screen and (max-width: $breakpontMobile) {
+    @include text-style(12px, normal, $textColor);
+  }
 }

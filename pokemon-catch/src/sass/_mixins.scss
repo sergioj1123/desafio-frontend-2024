@@ -4,3 +4,11 @@
   color: $color;
   text-align: center;
 }
+
+@mixin border-radius() {
+  border-radius: 15px;
+}
+
+@mixin box-shadow() {
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
