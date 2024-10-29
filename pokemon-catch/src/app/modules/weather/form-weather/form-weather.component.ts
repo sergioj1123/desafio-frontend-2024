@@ -12,6 +12,7 @@ export class FormWeatherComponent {
   city: string = '';
   weather: Weather[] = [];
   errorMessage: string = '';
+  isLoading: boolean = false;
 
   constructor(
     private weatherService: WeatherService,
@@ -21,6 +22,7 @@ export class FormWeatherComponent {
   ngOnInit() {}
 
   getWeatherByCity(): Weather[] {
+    this.isLoading = true;
     this.weatherService.getWeatherByCity(this.city).subscribe({
       next: (weather) => {
         this.weather = [weather];
@@ -30,10 +32,12 @@ export class FormWeatherComponent {
         this.errorMessage =
           'Erro ao buscar a previsão do tempo. Mais detalhes no console.';
         this.weather = [];
+        this.isLoading = false;
       },
       complete: () => {
         this.sendDataToBehaviorSubject();
         this.errorMessage = '';
+        this.isLoading = false;
       },
     });
     return this.weather;

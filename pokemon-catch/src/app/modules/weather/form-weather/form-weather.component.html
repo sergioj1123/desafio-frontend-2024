@@ -23,6 +23,7 @@
       [buttonText]="'Buscar'"
       (click)="getWeatherByCity()"
     ></button-component>
+    <app-loading *ngIf="isLoading === true"></app-loading>
   </form>
 </div>
 <city-information *ngIf="weather.length > 0"></city-information>
