@@ -20,7 +20,7 @@
   class="container pokemon-info first-screen"
   *ngIf="pokemonInformation.length > 0 && isLoading === false"
 >
-  <h2 class="pokemon-info__title title">Você encontrou o seguinte pokemon!</h2>
+  <h2 class="pokemon-info__title title">Você encontrou o seguinte pokémon!</h2>
   <div class="pokemon-info__content">
     <div class="pokemon-info__img-content">
       <img
@@ -59,7 +59,7 @@
     </li>
   </ul>
   <button-component
-    [buttonText]="'Encontre outro Pokemon'"
+    [buttonText]="'Encontre outro Pokémon'"
     (click)="RandomPokemon()"
     class="pokemon-info-details__button"
   ></button-component>
