@@ -7,7 +7,6 @@ import {
   isRainy,
 } from '../../../shared/utils/functions';
 import { PokemonService } from '../services/pokemon.service';
-import { concat } from 'rxjs';
 
 @Component({
   selector: 'app-pokemon-info',
@@ -25,6 +24,7 @@ export class PokemonInfoComponent implements OnInit {
   pokemonList: any[] = [];
   pokemonInformation: any = {};
   errorMessage: string = '';
+  isLoading: boolean = false;
 
   ngOnInit(): void {
     this.weatherData.currentData.subscribe({
@@ -63,6 +63,7 @@ export class PokemonInfoComponent implements OnInit {
   }
 
   queryPokemonByType(pokemonType: string) {
+    this.isLoading = true;
     this.pokemonService.getPokemonByType(pokemonType).subscribe({
       next: (pokemon) => {
         this.pokemonList = [pokemon];
@@ -72,6 +73,7 @@ export class PokemonInfoComponent implements OnInit {
         this.errorMessage =
           'Erro ao buscar a lista de pokemons. Mais detalhes no console.';
         this.pokemonList = [];
+        this.isLoading = false;
       },
       complete: () => {
         this.RandomPokemon();
@@ -98,6 +100,7 @@ export class PokemonInfoComponent implements OnInit {
   }
 
   queryPokemonByName(pokemonName: string) {
+    this.isLoading = true;
     this.pokemonService.getPokemonByName(pokemonName).subscribe({
       next: (pokemon) => {
         this.pokemonInformation = [pokemon];
@@ -107,12 +110,14 @@ export class PokemonInfoComponent implements OnInit {
         this.errorMessage =
           'Erro ao buscar o pokemon. Mais detalhes no console.';
         this.pokemonInformation = [];
+        this.isLoading = false;
       },
       complete: () => {
         this.currentPokemonName = this.removeHyphenAndCapitalize(
           this.currentPokemonName
         );
         this.errorMessage = '';
+        this.isLoading = false;
       },
     });
     return this.pokemonInformation;

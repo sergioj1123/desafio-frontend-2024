@@ -1,10 +1,16 @@
 <div
   class="container pokemon-info first-screen"
-  *ngIf="errorMessage.length > 0"
+  *ngIf="errorMessage.length > 0 || isLoading === true"
 >
-  <error-label [errorMessage]="errorMessage"></error-label>
+  <app-loading *ngIf="isLoading === true"></app-loading>
+
+  <error-label
+    [errorMessage]="errorMessage"
+    *ngIf="errorMessage.length > 0"
+  ></error-label>
   <a href="#" [routerLink]="['/']">
     <button-component
+      *ngIf="errorMessage.length > 0"
       [buttonText]="'Aventurar-se em outra cidade'"
       class="pokemon-info-details__button"
     ></button-component>
@@ -12,7 +18,7 @@
 </div>
 <div
   class="container pokemon-info first-screen"
-  *ngIf="pokemonInformation.length > 0"
+  *ngIf="pokemonInformation.length > 0 && isLoading === false"
 >
   <h2 class="pokemon-info__title title">Você encontrou o seguinte pokemon!</h2>
   <div class="pokemon-info__content">
@@ -28,7 +34,7 @@
 </div>
 <div
   class="container pokemon-info-details second-screen"
-  *ngIf="pokemonInformation.length > 0"
+  *ngIf="pokemonInformation.length > 0 && isLoading === false"
 >
   <ul class="pokemon-info-details__types">
     <h4 class="pokemon-info-details__text">
