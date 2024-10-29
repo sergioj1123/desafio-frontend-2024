@@ -19,12 +19,8 @@ export class FormWeatherComponent {
 
   ngOnInit() {}
 
-  getWeatherFromApiAndSendToDataBehaviorService() {
-    this.getWeatherByCity(this.city);
-  }
-
-  getWeatherByCity(city: string): Weather[] {
-    this.weatherService.getWeatherByCity(city).subscribe({
+  getWeatherByCity(): Weather[] {
+    this.weatherService.getWeatherByCity(this.city).subscribe({
       next: (weather) => {
         this.weather = [weather];
       },
