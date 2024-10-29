@@ -8,6 +8,7 @@ import { ButtonComponent } from '../../shared/components/button/button.component
 import { WeatherService } from './services/weather.service';
 import { RouterModule } from '@angular/router';
 import { ErrorLabelComponent } from '../../shared/components/error-label/error-label.component';
+import { LoadingComponent } from '../../shared/components/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -16,9 +17,10 @@ import { ErrorLabelComponent } from '../../shared/components/error-label/error-l
     CityInformationComponent,
     ButtonComponent,
     ErrorLabelComponent,
+    LoadingComponent,
   ],
   imports: [CommonModule, FormsModule, RouterModule],
   providers: [WeatherService],
-  exports: [ButtonComponent, ErrorLabelComponent],
+  exports: [ButtonComponent, ErrorLabelComponent, LoadingComponent],
 })
 export class WeatherModule {}

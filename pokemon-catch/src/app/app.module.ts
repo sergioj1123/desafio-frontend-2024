@@ -8,7 +8,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { WeatherModule } from './modules/weather/weather.module';
 import { PokemonModule } from './modules/pokemon/pokemon.module';
-import { ErrorLabelComponent } from './shared/components/error-label/error-label.component';
 
 @NgModule({
   declarations: [AppComponent],
