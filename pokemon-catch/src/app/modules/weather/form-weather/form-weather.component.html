@@ -15,6 +15,10 @@
       [(ngModel)]="city"
       name="city"
     />
+    <error-label
+      *ngIf="errorMessage.length > 0"
+      [errorMessage]="errorMessage"
+    ></error-label>
     <button-component
       [buttonText]="'Buscar'"
       (click)="getWeatherByCity()"

@@ -24,6 +24,7 @@ export class PokemonInfoComponent implements OnInit {
   currentPokemonName: string = '';
   pokemonList: any[] = [];
   pokemonInformation: any = {};
+  errorMessage: string = '';
 
   ngOnInit(): void {
     this.weatherData.currentData.subscribe({
@@ -67,11 +68,15 @@ export class PokemonInfoComponent implements OnInit {
         this.pokemonList = [pokemon];
       },
       error: (error) => {
-        console.error(error + 'Erro ao buscar o tipo de pokemon');
+        console.error(error);
+        this.errorMessage =
+          'Erro ao buscar a lista de pokemons. Mais detalhes no console.';
+        this.pokemonList = [];
       },
       complete: () => {
         this.RandomPokemon();
         this.queryPokemonByName(this.currentPokemonName);
+        this.errorMessage = '';
       },
     });
     return this.pokemonList;
@@ -98,12 +103,16 @@ export class PokemonInfoComponent implements OnInit {
         this.pokemonInformation = [pokemon];
       },
       error: (error) => {
-        console.error(error + 'Erro ao buscar o pokemon');
+        console.error(error);
+        this.errorMessage =
+          'Erro ao buscar o pokemon. Mais detalhes no console.';
+        this.pokemonInformation = [];
       },
       complete: () => {
         this.currentPokemonName = this.removeHyphenAndCapitalize(
           this.currentPokemonName
         );
+        this.errorMessage = '';
       },
     });
     return this.pokemonInformation;

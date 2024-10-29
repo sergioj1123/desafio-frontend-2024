@@ -11,6 +11,7 @@ import { WeatherDataBehaviorService } from '../../../shared/services/weather-dat
 export class FormWeatherComponent {
   city: string = '';
   weather: Weather[] = [];
+  errorMessage: string = '';
 
   constructor(
     private weatherService: WeatherService,
@@ -25,10 +26,14 @@ export class FormWeatherComponent {
         this.weather = [weather];
       },
       error: (error) => {
-        console.error(error + 'Erro ao buscar a previsão do tempo');
+        console.error(error);
+        this.errorMessage =
+          'Erro ao buscar a previsão do tempo. Mais detalhes no console.';
+        this.weather = [];
       },
       complete: () => {
         this.sendDataToBehaviorSubject();
+        this.errorMessage = '';
       },
     });
     return this.weather;
