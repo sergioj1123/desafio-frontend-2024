@@ -7,6 +7,7 @@ import { CityInformationComponent } from './city-information/city-information.co
 import { ButtonComponent } from '../../shared/components/button/button.component';
 import { WeatherService } from './services/weather.service';
 import { RouterModule } from '@angular/router';
+import { ErrorLabelComponent } from '../../shared/components/error-label/error-label.component';
 
 @NgModule({
   declarations: [
@@ -14,9 +15,10 @@ import { RouterModule } from '@angular/router';
     TextDirective,
     CityInformationComponent,
     ButtonComponent,
+    ErrorLabelComponent,
   ],
   imports: [CommonModule, FormsModule, RouterModule],
   providers: [WeatherService],
-  exports: [ButtonComponent],
+  exports: [ButtonComponent, ErrorLabelComponent],
 })
 export class WeatherModule {}
